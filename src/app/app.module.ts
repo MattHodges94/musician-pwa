@@ -1,37 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from "./app-routing/app-routing.module";
+import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from './app.component';
 
 import { AppShellComponent } from './app-shell/app-shell.component';
-import { MusicTermsComponent } from './music-terms/music-terms.component';
-import { MetronomeComponent } from './metronome/metronome.component';
-import { ScaleGeneratorComponent } from './scale-generator/scale-generator.component';
+import { MusicTermsModule } from './music-terms/music-terms.module';
+import { MetronomeModule } from './metronome/metronome.module';
+import { ScaleGeneratorModule } from './scale-generator/scale-generator.module';
 
 //Angular Fire imports
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyD-VOQXjzqrx4jxCX9p79cNIyQthdCLJy8",
-  authDomain: "music-web-app-47bca.firebaseapp.com",
-  databaseURL: "https://music-web-app-47bca.firebaseio.com",
-  projectId: "music-web-app-47bca",
-  messagingSenderId: "296130970811"
-};
+import { firebaseConfig } from '../environments/firebase.config'
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppShellComponent,
-    MusicTermsComponent,
-    MetronomeComponent,
-    ScaleGeneratorComponent
+    AppShellComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MusicTermsModule,
+    MetronomeModule,
+    ScaleGeneratorModule,
     //Firebase imports
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
