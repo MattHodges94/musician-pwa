@@ -1,0 +1,13 @@
+{
+    "name": "Musician App",
+    "short_name": "Musician App",
+    "icons": [
+      {
+        "src": "assets/icons/favicon.png",
+        "sizes": "192x192",
+        "type": "image\/png"
+      }
+    ],
+    "display": "standalone",
+    "start_url": "./?utm_source=web_app_manifest"
+  }
