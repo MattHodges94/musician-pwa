@@ -3,14 +3,15 @@ import {CommonModule} from '@angular/common';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { MusicTermsComponent } from './music-terms/music-terms/music-terms.component';
-import { MetronomeModule } from './metronome/metronome.module';
-import { ScaleGeneratorModule } from './scale-generator/scale-generator.module';
+
 
 
 const routes = [
+  {path: '', redirectTo: '/music-index', pathMatch: 'full'},
   {path: 'music-index', component: MusicTermsComponent},
   {path: 'metronome', loadChildren: './metronome/metronome.module#MetronomeModule'},
   {path: 'scales', loadChildren: './scale-generator/scale-generator.module#ScaleGeneratorModule'},
+  {path: '' , loadChildren: './user/user.module#UserModule'},
   {path: '**', redirectTo: '/music-index'}
 ]
 
