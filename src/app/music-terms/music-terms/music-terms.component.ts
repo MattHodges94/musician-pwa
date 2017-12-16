@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-music-terms',
@@ -7,7 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MusicTermsComponent implements OnInit {
 
-  constructor() { }
+
+  user: firebase.User;
+
+  constructor(private authService: AuthService) { 
+    authService.user.subscribe(user => {
+      this.user = user;
+    })
+  }
 
   ngOnInit() {
   }

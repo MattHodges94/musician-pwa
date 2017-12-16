@@ -12,6 +12,7 @@ export class AuthService {
   
     constructor(private auth: AngularFireAuth) {
       this.user = auth.authState;
+      
     }
   
     signup(email: string, password: string) {
@@ -49,7 +50,13 @@ export class AuthService {
     logout() {
       this.auth
         .auth
-        .signOut();
+        .signOut()
+        .then( value => {
+          
+        })
+        .catch( err => {
+          console.log(err.message)
+        })
     }
 
 }

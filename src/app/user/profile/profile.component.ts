@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as firebase from 'firebase/app';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 
@@ -21,9 +21,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.user.subscribe(user => {
       this.userInfo = user 
-      console.log(this.userInfo.uid)
     })
-    console.log(this.user)
   }
 
 }

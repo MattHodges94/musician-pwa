@@ -1,4 +1,4 @@
-<div *ngIf="!(authService.user)">
+<div *ngIf="!user">
   <input type="text" [(ngModel)]="email" placeholder="email">
   <input type="password" [(ngModel)]="password" placeholder="email">
 
@@ -11,6 +11,7 @@
   </button>
 </div>
 
-<button (click)="logout()" *ngIf="authService.user">
+<button (click)="logout()" *ngIf="user">
   Logout
 </button>
+

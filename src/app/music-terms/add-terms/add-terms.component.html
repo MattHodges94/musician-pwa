@@ -1,3 +1,27 @@
-<p>
-  add-terms works!
-</p>
+<form (ngSubmit)="onSubmit(termForm)" #termForm="ngForm">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" id="name"
+           required
+           [(ngModel)]="newTerm.name" name="name"
+           #name="ngModel">
+    <div [hidden]="name.valid || name.pristine"
+         class="alert alert-danger">
+      Name is required
+    </div>
+  </div>
+
+  <div>
+    <label for="description">Description</label>
+    <input type="text" id="description"
+           required
+           [(ngModel)]="newTerm.description" name="description"
+           #description="ngModel">
+    <div [hidden]="description.valid || description.pristine"
+         class="alert alert-danger">
+      Description is required
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>

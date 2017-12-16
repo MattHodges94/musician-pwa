@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MusicTermsRoutingModule } from './music-terms-routing.module';
 import { AddTermsComponent } from './add-terms/add-terms.component';
@@ -10,7 +11,9 @@ import { MusicTermsComponent } from './music-terms/music-terms.component';
 @NgModule({
   imports: [
     CommonModule,
-    MusicTermsRoutingModule
+    MusicTermsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [AddTermsComponent, MusicTermsComponent, MusicTermsComponent, SearchTermsComponent]
 })

@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms/src/directives/ng_form';
+
+import { MusicTerm } from '../../models/music-term.model';
+
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireList } from 'angularfire2/database/interfaces';
 
 @Component({
   selector: 'app-add-terms',
@@ -7,9 +13,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTermsComponent implements OnInit {
 
-  constructor() { }
+  private newTerm = new MusicTerm()
+  private newTermRef: AngularFireList<MusicTerm>
+
+
+  constructor(private db: AngularFireDatabase) { }
 
   ngOnInit() {
+   this.newTermRef = this.db.list('/terms/');
   }
+
+  onSubmit(termForm: NgForm) { 
+    if(termForm.valid){
+      this.newTermRef.push( this.newTerm );
+    }
+  }
+
 
 }
