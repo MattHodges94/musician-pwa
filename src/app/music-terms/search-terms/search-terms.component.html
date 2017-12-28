@@ -2,7 +2,7 @@
        name="termSearch" 
        #termSearch 
        id="search-box"
-       (keyup)="search(termSearch.value)">
+       (input)="search(termSearch.value)">
 <div *ngFor="let term of termList">
   <p *ngIf="termListMap.get(term)">{{term.name}}</p>
 </div>

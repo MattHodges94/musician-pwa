@@ -59,4 +59,8 @@ export class AuthService {
         })
     }
 
+    sendPasswordReset(email: string){
+      this.auth.auth.sendPasswordResetEmail(email)
+    }
+
 }

@@ -1,6 +1,9 @@
-<p>
-  metronome works!
-</p>
-
-<a [routerLink]="['/scales']">scales </a>
-<a [routerLink]="['/music-terms']">terms </a>
+<input type="number" 
+       #tempo 
+       name="tempo" 
+       (input)="changeTempo(tempo.value)"
+       value="30"
+       min="1"
+       max="150">
+<button *ngIf="!hasStarted" (click)="startMetronome()">Start</button>
+<button *ngIf="hasStarted" (click)="stopMetronome()">Stop</button>

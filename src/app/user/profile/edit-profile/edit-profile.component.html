@@ -1,0 +1,15 @@
+<form (ngSubmit)="openDialog(userForm)" #userForm="ngForm">
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email"
+             required
+             [(ngModel)]="userEmail" name="email"
+             #email="ngModel">
+      <div [hidden]="email.valid || email.pristine"
+           class="alert alert-danger">
+        Email is required
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>

@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MusicTermsRoutingModule } from './music-terms-routing.module';
-import { AddTermsComponent } from './add-terms/add-terms.component';
+import { MusicTermsSharedModule } from '../music-terms/music-terms-shared.module';
 import { SearchTermsComponent } from './search-terms/search-terms.component';
 import { MusicTermsComponent } from './music-terms/music-terms.component';
 
@@ -12,9 +11,11 @@ import { MusicTermsComponent } from './music-terms/music-terms.component';
   imports: [
     CommonModule,
     MusicTermsRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
+    MusicTermsSharedModule
   ],
-  declarations: [AddTermsComponent, MusicTermsComponent, MusicTermsComponent, SearchTermsComponent]
+  declarations: [ 
+    MusicTermsComponent, 
+    SearchTermsComponent
+  ]
 })
 export class MusicTermsModule { }

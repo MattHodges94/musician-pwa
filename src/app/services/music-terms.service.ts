@@ -13,17 +13,21 @@ export class MusicTermsService {
 
   public user: Observable<firebase.User>;
   private termListRef: AngularFireList<MusicTerm>;
+  private userTermListRef: AngularFireList<MusicTerm>;
   
   constructor(private auth: AngularFireAuth, private db: AngularFireDatabase) {
     this.user = auth.authState;
     this.termListRef = this.db.list('/terms/');
-      
+   
   }
 
   public getAllMusicTerms(): Observable<MusicTerm[]> {
-
     return this.termListRef.valueChanges()
+  }
 
+  public getUserTerms(uid: string): Observable<MusicTerm[]> {
+    this.userTermListRef = this.db.list('/customTerms/' + uid)
+    return this.userTermListRef.valueChanges()
   }
   
 

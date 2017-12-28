@@ -1,0 +1,47 @@
+<!-- <form (ngSubmit)="onSubmit(scaleListForm)" #scaleListForm="ngForm">
+  <div>
+    <label for="name">List Name</label>
+    <input type="text" id="name"
+           required
+           [(ngModel)]="newScaleList.name" name="name"
+           #name="ngModel">
+    <div [hidden]="name.valid || name.pristine"
+         class="alert alert-danger">
+      Name is required
+    </div>
+  </div>
+
+  <div>
+    <label for="description">Scales</label>
+    <ng-container *ngFor="let scale of scales; let i = index; trackBy:trackByIndex;">
+      <input type="text" id="description"
+            [(ngModel)]="scales[i]" [name]="scales + i"
+            #scales{{i}}="ngModel">
+    </ng-container>
+    <a (click)="addNewScaleEntry()">Add another</a>
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form> -->
+
+
+<form [formGroup]="scaleListForm">
+    <div>
+        <label for="name">List Name</label>
+        <input type="text" id="name"
+               required
+               formControlName="name" name="name">
+      </div>
+    <div formArrayName="scales">
+      <!-- Check the correct way to iterate your form array -->
+      <div *ngFor="let scale of scaleListForm.controls.scales.controls; let i=index"  [formGroupName]="i">
+        <div class="form-group">
+          <label>Scale</label>
+          <input formControlName="scalename" class="form-control">
+        </div>
+        <button *ngIf="scaleListForm.controls.scales.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger">Delete Button</button>
+      </div>
+    </div>
+    <button type="button" (click)="addNewRow()" class="btn btn-primary">Add new Row</button>
+    <button type="submit" (click)="onSubmit()" class="btn btn-success">Submit</button>
+</form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import * as firebase from 'firebase/app';
 import { AuthService } from '../../services/auth.service';
@@ -12,16 +13,19 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
-   }
+  public user: firebase.User;
 
-  private user = this.authService.user
-  private userInfo: firebase.User
+  constructor(private authService: AuthService, private router: Router) {
+    authService.user.subscribe(user => {
+      this.user = user;
+      if(!user){
+        this.router.navigateByUrl('/login')
+      }
+    })
+  }
 
   ngOnInit() {
-    this.user.subscribe(user => {
-      this.userInfo = user 
-    })
+    
   }
 
 }

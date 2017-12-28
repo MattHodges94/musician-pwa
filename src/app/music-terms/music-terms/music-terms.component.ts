@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
+
+
 import * as firebase from 'firebase/app';
 
 @Component({
@@ -11,7 +13,7 @@ import * as firebase from 'firebase/app';
 export class MusicTermsComponent implements OnInit {
 
 
-  user: firebase.User;
+  public user: firebase.User;
 
   constructor(private authService: AuthService) { 
     authService.user.subscribe(user => {
@@ -20,6 +22,7 @@ export class MusicTermsComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
 }

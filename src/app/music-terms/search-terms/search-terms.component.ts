@@ -5,6 +5,8 @@ import { MusicTerm } from '../../models/music-term.model';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireList } from 'angularfire2/database/interfaces';
+import * as firebase from 'firebase/app';
+import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -14,10 +16,10 @@ import { Observable } from 'rxjs/Observable';
 })
 export class SearchTermsComponent implements OnInit {
 
-  private termList: MusicTerm[];
+  public termList: MusicTerm[] = []
   private termListMap: Map<MusicTerm, boolean> = new Map;
 
-  constructor(private db: AngularFireDatabase, private musicTermsService: MusicTermsService) { }
+  constructor(private db: AngularFireDatabase, private musicTermsService: MusicTermsService, private authService: AuthService) { }
 
   ngOnInit() {
     this.musicTermsService.getAllMusicTerms()
@@ -27,11 +29,23 @@ export class SearchTermsComponent implements OnInit {
           this.termListMap.set(term, false);
         })
     })
+    this.authService.user.subscribe(user => {
+      if(user){
+        this.musicTermsService.getUserTerms(user.uid)
+        .subscribe(terms => {
+          terms.forEach(term => {
+            this.termList.push(term)
+            this.termListMap.set(term, false);
+          })
+        })
+      }
+    })
+    
   }
 
-  private search(searchTerm: string){
+  public search(searchTerm: string){
     this.termList.filter(term => {
-      if(searchTerm != '' && term.name.includes(searchTerm)){
+      if(searchTerm != '' && term.name.toLowerCase().includes(searchTerm.toLowerCase())){
         this.termListMap.set(term, true)
       } else {
         this.termListMap.set(term, false)
