@@ -12,6 +12,7 @@ import { ScalesSharedModule } from '../scale-generator/scales-shared.module';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { ConfirmCredentialsDialogComponent } from './profile/edit-profile/confirm-credentials-dialog/confirm-credentials-dialog.component';
 
+import { HeaderModule } from '../header/header.module'
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { ConfirmCredentialsDialogComponent } from './profile/edit-profile/confir
     UserRoutingModule,
     MusicTermsSharedModule,
     ScalesSharedModule,
-    FormsModule
+    FormsModule,
+    HeaderModule
   ],
   declarations: [LoginComponent, RegisterComponent, ResetPasswordComponent, ProfileComponent, EditProfileComponent, ConfirmCredentialsDialogComponent],
   entryComponents: [ConfirmCredentialsDialogComponent]

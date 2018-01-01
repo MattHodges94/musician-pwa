@@ -1,27 +1,28 @@
 <form (ngSubmit)="onSubmit(termForm)" #termForm="ngForm">
   <div>
-    <label for="termName">Name</label>
+    <label for="termName">Name 
+        <span [hidden]="(submitted && termName.valid) || 
+                        !submitted && (termName.valid || termName.pristine)"
+        class="alert alert-danger">is required</span>
+    </label>
     <input type="text" id="termName"
            required
            [(ngModel)]="newTerm.name" name="termName"
            #termName="ngModel">
-    <div [hidden]="termName.valid || termName.pristine"
-         class="alert alert-danger">
-      Name is required
-    </div>
   </div>
 
   <div>
-    <label for="description">Description</label>
+    <label for="description">Description
+        <span [hidden]="(submitted && description.valid) || 
+                        !submitted && (description.valid || description.pristine)"
+        class="alert alert-danger">is required</span>
+
+    </label>
     <input type="text" id="description"
            required
            [(ngModel)]="newTerm.description" name="description"
            #description="ngModel">
-    <div [hidden]="description.valid || description.pristine"
-         class="alert alert-danger">
-      Description is required
-    </div>
-  </div>
+  </div> 
 
   <button type="submit" class="btn btn-success">Submit</button>
 </form>

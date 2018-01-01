@@ -3,8 +3,11 @@ module.exports = {
         'dist/**.html',
         'dist/**.js',
         'dist/**.json',
-        'dist/favicon.ico',
+        'dist/*.ico',
+        'dist/*.png',
+        'dist/*.svg',
         'dist/assets/icons/**.png',
+        'dist/assets/icons/**.svg',
         'dist/assets/audio/**.mp3'
 
 

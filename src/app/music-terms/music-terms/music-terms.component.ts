@@ -17,7 +17,7 @@ export class MusicTermsComponent implements OnInit {
 
   constructor(private authService: AuthService) { 
     authService.user.subscribe(user => {
-      this.user = user;
+        this.user = user;
     })
   }
 

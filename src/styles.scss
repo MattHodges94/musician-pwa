@@ -1,6 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
+body{
+    margin: 0;
+    padding: 0;
+}
+html{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+*{
+    box-sizing: inherit;
+}
 .success{
     background-color: green;
 } 

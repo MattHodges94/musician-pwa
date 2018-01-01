@@ -1,18 +1,19 @@
+<app-header headerTitle="Scales"></app-header>
 <mat-tab-group>
   <mat-tab label="Major">
-    <ng-container *ngFor="let scale of majorScales">
+    <ng-container *ngFor="let scale of scales['majorScales']">
       <p>{{scale.name}}</p>
     </ng-container>
     <button (click)="shuffle(scaleSets.majorScales)">Shuffle</button>
   </mat-tab>
   <mat-tab label="Minor">
-    <ng-container *ngFor="let scale of minorScales">
+    <ng-container *ngFor="let scale of scales['minorScales']">
       <p>{{scale.name}}</p>
     </ng-container>
     <button (click)="shuffle(scaleSets.minorScales)">Shuffle</button>
   </mat-tab>
   <mat-tab label="Both">
-    <ng-container *ngFor="let scale of allScales">
+    <ng-container *ngFor="let scale of scales['allScales']">
       <p>{{scale.name}}</p>
     </ng-container>
     <button (click)="shuffle(scaleSets.allScales)">Shuffle</button>

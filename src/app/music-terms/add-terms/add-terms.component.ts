@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 
 import { MusicTerm } from '../../models/music-term.model';
@@ -19,13 +20,16 @@ export class AddTermsComponent implements OnInit {
   public newTerm = new MusicTerm();
   public user: firebase.User;
   private newTermRef: AngularFireList<MusicTerm>;
+  public submitted: boolean = false;
 
 
-  constructor(private db: AngularFireDatabase, private authService: AuthService, private notifications: NotificationsService) {
+  constructor(private router: Router, private db: AngularFireDatabase, private authService: AuthService, private notifications: NotificationsService) {
     authService.user.subscribe(user => {
       if(user){
         this.user = user;
         this.newTermRef = this.db.list('/customTerms/' + this.user.uid);
+      }else{
+        this.router.navigateByUrl('/')
       }
     })
   }
@@ -34,17 +38,16 @@ export class AddTermsComponent implements OnInit {
   }
 
   onSubmit(termForm: NgForm) { 
-    this.notifications.openToast('Term successfully added!', 'success')
-
-    
-    // if(termForm.valid){
-    //   this.newTermRef.push( this.newTerm )
-    //     .then(value => {
-    //       this.notifications.openToast('Term successfully added!', 'success')
-    //     })
-    //   termForm.reset()
-    // }
+    console.log(termForm) 
+    if(termForm.valid){
+      this.newTermRef.push( this.newTerm )
+        .then(value => {
+          this.notifications.openToast('Term successfully added!', 'success')
+        })
+        this.submitted = false;
+      termForm.reset()
+    }else{
+      this.submitted = true;
+    }
   }
-
-
 }

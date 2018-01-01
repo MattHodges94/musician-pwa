@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { AuthService } from '../../services/auth.service';
+
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  userEmail: string;
+  userPassword: string;
+  user: firebase.User;
 
-  ngOnInit() {
+  constructor(public authService: AuthService) {
+    
+  }
+
+  ngOnInit(){
+    this.authService.user.subscribe(user => {
+      this.user = user;
+    })
+  }
+
+  signup() {
+    this.authService.signup(this.userEmail, this.userPassword);
   }
 
 }

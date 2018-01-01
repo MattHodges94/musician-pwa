@@ -16,8 +16,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class SearchTermsComponent implements OnInit {
 
-  public termList: MusicTerm[] = []
-  private termListMap: Map<MusicTerm, boolean> = new Map;
+  public termList: any[] = []
+  private termListMap: Map<any, boolean> = new Map;
 
   constructor(private db: AngularFireDatabase, private musicTermsService: MusicTermsService, private authService: AuthService) { }
 
@@ -29,6 +29,7 @@ export class SearchTermsComponent implements OnInit {
           this.termListMap.set(term, false);
         })
     })
+    
     this.authService.user.subscribe(user => {
       if(user){
         this.musicTermsService.getUserTerms(user.uid)

@@ -9,7 +9,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class MetronomeComponent implements OnInit, OnDestroy {
   //init to 30bpm 
-  //interval = 60,000 / xbpm
+  //interval = 60,000 / x bpm
   private interval: number = 60000 / 30;
   public hasStarted: boolean = false;
   private metronomeTick = new Audio('./assets/audio/tick.mp3');

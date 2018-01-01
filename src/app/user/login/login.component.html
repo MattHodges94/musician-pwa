@@ -1,15 +1,32 @@
-<div *ngIf="!user">
-  <input type="text" [(ngModel)]="email" placeholder="email">
-  <input type="password" [(ngModel)]="password" placeholder="email">
+<app-header headerTitle="Login"></app-header>
+<form *ngIf="!user" (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+  <div>
+    <label for="email">Email
+      <span [hidden]="(loginForm.submitted && email.valid) || 
+                      !loginForm.submitted && (email.valid || email.pristine)"
+      class="alert alert-danger">is required</span>
+    </label>
+    <input type="email" id="email"
+           required
+           [(ngModel)]="userEmail" name="email"
+           #email="ngModel">
+  </div>
 
-  <button (click)="signup()" [disabled]="!email || !password">
-    Signup
-  </button>
+  <div>
+    <label for="email">Password
+      <span [hidden]="(loginForm.submitted && password.valid) || 
+                      !loginForm.submitted && (password.valid || password.pristine)"
+      class="alert alert-danger">is required</span>
+    </label>
+    <input type="password" id="password"
+           required
+           [(ngModel)]="userPassword" name="password"
+           #password="ngModel">
+  </div>
 
-  <button (click)="login()" [disabled]="!email || !password">
-    Login
-  </button>
-</div>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+<a routerLink="/register">Register</a>
 
 <button (click)="logout()" *ngIf="user">
   Logout

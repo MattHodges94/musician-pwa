@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AddTermsComponent } from '../music-terms/add-terms/add-terms.component';
-
+import { EditTermsComponent } from '../music-terms/edit-terms/edit-terms.component';
 
 @NgModule({
   imports: [
@@ -12,10 +12,12 @@ import { AddTermsComponent } from '../music-terms/add-terms/add-terms.component'
     ReactiveFormsModule
   ],
   declarations: [ 
-    AddTermsComponent
+    AddTermsComponent,
+    EditTermsComponent
   ],
   exports: [
-    AddTermsComponent
+    AddTermsComponent, 
+    EditTermsComponent
   ]
 })
 export class MusicTermsSharedModule { }

@@ -1,0 +1,3 @@
+<div *ngFor="let term of userTerms">
+    {{term.name}} <button (click)="deleteTerm(term.key)">delete</button>
+</div> 

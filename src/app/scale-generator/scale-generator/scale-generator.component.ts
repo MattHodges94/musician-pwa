@@ -4,6 +4,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { RouterLink } from '@angular/router';
 
 import { Constants } from '../../constants'
+import { Enums } from '../../enums'
 
 @Component({
   selector: 'app-scale-generator',
@@ -12,10 +13,8 @@ import { Constants } from '../../constants'
 })
 export class ScaleGeneratorComponent implements OnInit {
 
-  public majorScales: Array<Object> = Constants.majorScales;
-  public minorScales: Array<Object> = Constants.minorScales;
-  public allScales: Array<Object> = Constants.allScales;
-  public scaleSets = Constants.scaleSet;
+  public scales: Object = Constants.scales;
+  public scaleSets = Enums.scaleSet;
   constructor() { }
 
   ngOnInit() {
@@ -25,11 +24,8 @@ export class ScaleGeneratorComponent implements OnInit {
     let currentIndex,
         temporaryValue, 
         randomIndex; 
-    if(scaleSet == this.scaleSets.majorScales || scaleSet == this.scaleSets.minorScales){
-      currentIndex = this.majorScales.length
-    } else {
-      currentIndex = this.allScales.length
-    }
+
+    currentIndex = this.scales[this.scaleSets[scaleSet]].length
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
 
@@ -38,20 +34,11 @@ export class ScaleGeneratorComponent implements OnInit {
       currentIndex -= 1;
 
       // And swap it with the current element.
-      if(scaleSet == this.scaleSets.majorScales){
-        temporaryValue = this.majorScales[currentIndex];
-        this.majorScales[currentIndex] = this.majorScales[randomIndex];
-        this.majorScales[randomIndex] = temporaryValue;
-      } else if(scaleSet == this.scaleSets.minorScales) {
-        temporaryValue = this.minorScales[currentIndex];
-        this.minorScales[currentIndex] = this.minorScales[randomIndex];
-        this.minorScales[randomIndex] = temporaryValue;
-      } else if(scaleSet == this.scaleSets.allScales){
-        temporaryValue = this.allScales[currentIndex];
-        this.allScales[currentIndex] = this.allScales[randomIndex];
-        this.allScales[randomIndex] = temporaryValue;
-      }
+      temporaryValue = this.scales[this.scaleSets[scaleSet]][currentIndex];
+      this.scales[this.scaleSets[scaleSet]][currentIndex] = this.scales[this.scaleSets[scaleSet]][randomIndex];
+      this.scales[this.scaleSets[scaleSet]][randomIndex] = temporaryValue;
+      
     }
-  }
 
+  }
 }

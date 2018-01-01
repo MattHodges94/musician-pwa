@@ -1,7 +1,42 @@
-<div>
-<a [routerLink]="['/music-terms']">music terms</a>
-<a [routerLink]="['/metronome']">metronome</a>
-<a [routerLink]="['/scales']">scales</a>
-<a [routerLink]="['/profile']">profile</a>
-<a [routerLink]="['/login']">login</a>
-</div>
+<nav class="nav">
+    <a class="icon__hamburger mobile" (click)="toggleSidenav()"></a>
+    <a routerLink="/" class="nav__logo"></a>
+    <ul class="nav__items desktop">
+        <li class="nav__item">
+            <a class="nav__link" [routerLink]="['/music-terms']">music terms</a>
+        </li>
+        <li class="nav__item">
+            <a class="nav__link" [routerLink]="['/metronome']">metronome</a>
+        </li> 
+        <li class="nav__item">
+            <a class="nav__link" [routerLink]="['/scales']">scales</a>
+        </li>
+        <li class="nav__item" id="user">
+            <a class="nav__link icon__user"></a>
+            <ul class="nav__userItems">
+                <li class="nav__userItem">
+                    <a class="nav__link" [routerLink]="['/profile']">profile</a>
+                </li>
+                <li class="nav__userItem">
+                    <a class="nav__link" [routerLink]="['/login']">login</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="nav__items mobile">
+        <li class="nav__item" id="user">
+            <a class="nav__link icon__user" ></a>
+            <ul class="nav__userItems">
+                <li class="nav__userItem">
+                    <a class="nav__link" [routerLink]="['/profile']">profile</a>
+                </li>
+                <li class="nav__userItem">
+                    <a class="nav__link" [routerLink]="['/login']">login</a>
+                </li>
+            </ul>
+        </li> 
+    </ul>
+</nav>
+
+
+

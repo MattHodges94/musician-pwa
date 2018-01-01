@@ -1,7 +1,7 @@
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireList } from 'angularfire2/database/interfaces';
+import { AngularFireList, AngularFireObject, AngularFireAction } from 'angularfire2/database/interfaces';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
@@ -25,9 +25,18 @@ export class MusicTermsService {
     return this.termListRef.valueChanges()
   }
 
-  public getUserTerms(uid: string): Observable<MusicTerm[]> {
+  public getUserTerms(uid: string): Observable<AngularFireAction<firebase.database.DataSnapshot>[]> {
     this.userTermListRef = this.db.list('/customTerms/' + uid)
-    return this.userTermListRef.valueChanges()
+
+    //not updating when something is removed from firbaase????
+    return this.userTermListRef.snapshotChanges().map(changes => {
+      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+    });
+  }
+
+  public deleteTerm(uid: string, termId: string){
+    return this.db.list('/customTerms/' + uid +'/' + termId).remove()
+    
   }
   
 

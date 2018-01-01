@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AddScaleListComponent } from './add-scale-list/add-scale-list.component';
+import { EditScalesComponent } from './edit-scales/edit-scales.component'
 
 
 @NgModule({
@@ -12,10 +13,12 @@ import { AddScaleListComponent } from './add-scale-list/add-scale-list.component
     ReactiveFormsModule
   ],
   declarations: [ 
-    AddScaleListComponent
+    AddScaleListComponent,
+    EditScalesComponent
   ],
   exports: [
-    AddScaleListComponent
+    AddScaleListComponent, 
+    EditScalesComponent
   ]
 })
 export class ScalesSharedModule { }

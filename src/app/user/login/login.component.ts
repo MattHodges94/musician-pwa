@@ -11,8 +11,8 @@ import * as firebase from 'firebase/app';
 })
 export class LoginComponent implements OnInit {
 
-  email: string;
-  password: string;
+  userEmail: string;
+  userPassword: string;
   user: firebase.User;
 
   constructor(public authService: AuthService) {
@@ -25,14 +25,9 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  signup() {
-    this.authService.signup(this.email, this.password);
-    this.email = this.password = '';
-  }
 
   login() {
-    this.authService.login(this.email, this.password);
-    this.email = this.password = '';    
+    this.authService.login(this.userEmail, this.userPassword);
   }
 
   logout() {

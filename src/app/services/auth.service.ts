@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router'
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
 import { Observable } from 'rxjs/Observable';
 
+import { NotificationsService } from '../services/notifications.service';
+
 @Injectable()
 export class AuthService {
 
   public user: Observable<firebase.User>;
   
-    constructor(private auth: AngularFireAuth) {
+    constructor(private auth: AngularFireAuth, private router: Router, private notifications: NotificationsService) {
       this.user = auth.authState;
       
     }
@@ -22,7 +25,9 @@ export class AuthService {
         .then(value => {
           let user:any = firebase.auth().currentUser;
           user.sendEmailVerification().then(
-            (success) => {console.log("please verify your email")} 
+            (success) => {
+              this.notifications.openToast('Please check your email to verify your account', 'success')
+            } 
           ).catch(
             (err) => {
               console.log(err)
@@ -40,7 +45,6 @@ export class AuthService {
         .auth
         .signInWithEmailAndPassword(email, password)
         .then(value => {
-          console.log('Nice, it worked!');
         })
         .catch(err => {
           console.log('Something went wrong:',err.message);
@@ -52,7 +56,8 @@ export class AuthService {
         .auth
         .signOut()
         .then( value => {
-          
+          console.log('logout')
+          this.router.navigateByUrl('/login')
         })
         .catch( err => {
           console.log(err.message)

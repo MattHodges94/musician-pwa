@@ -2,14 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatTabsModule, MatDialogModule, MatSnackBarModule } from '@angular/material';
+import { MatTabsModule, MatDialogModule, MatSnackBarModule, MatSidenavModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 
 import { AppShellComponent } from './app-shell/app-shell.component';
 import { MusicTermsService } from './services/music-terms.service';
+import { ScalesService } from './services/scales.service';
 import { NotificationsService } from './services/notifications.service';
+import { SidenavService } from './services/sidenav.service';
 import { MusicTermsModule } from './music-terms/music-terms.module';
 import { MusicTermsSharedModule } from './music-terms/music-terms-shared.module';
 import { MetronomeModule } from './metronome/metronome.module';
@@ -44,12 +46,13 @@ import { firebaseConfig } from '../environments/firebase.config';
     MatTabsModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatSidenavModule,
     //Firebase imports
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [AuthService, MusicTermsService, NotificationsService],
+  providers: [AuthService, MusicTermsService, NotificationsService, ScalesService, SidenavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

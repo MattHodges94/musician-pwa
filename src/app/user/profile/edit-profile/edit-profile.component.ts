@@ -11,6 +11,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 
 import { ConfirmCredentialsDialogComponent } from './confirm-credentials-dialog/confirm-credentials-dialog.component';
+import { NotificationsService } from '../../../services/notifications.service';
 
 
 @Component({
@@ -24,35 +25,29 @@ export class EditProfileComponent implements OnInit {
   public user: firebase.User;
   public userEmail: string;
   
-    constructor(private authService: AuthService, private router: Router, public dialog: MatDialog) {
+    constructor(private authService: AuthService, private router: Router, public dialog: MatDialog, public notifications: NotificationsService) {
       authService.user.subscribe(user => {
-        this.user = user;
-        this.userEmail = user.email;
+        if(user){
+          this.user = user;
+          this.userEmail = user.email;
+        }
       })
     }
 
     openDialog(userForm: NgForm): void {
-      let dialogRef = this.dialog.open(ConfirmCredentialsDialogComponent, {
-        width: '250px',
-        data: { email: this.userEmail }
-      });
-  
-      dialogRef.afterClosed().subscribe(result => {
-        //toast here
-      });
+      if(userForm.valid){
+        let dialogRef = this.dialog.open(ConfirmCredentialsDialogComponent, {
+          width: '250px',
+          data: { email: this.userEmail }
+        });
+    
+        dialogRef.afterClosed().subscribe(result => {
+          this.notifications.openToast('Email successfully updated!', 'success')
+        });
+      }
     }
 
   ngOnInit() {
-  }
-
-
-  onSubmit(userForm: NgForm){
-    if(userForm.valid){
-      
-      // if(this.user.email != this.userEmail){
-      //   this.user.updateEmail(this.userEmail)
-      // }
-    }
   }
 
 
