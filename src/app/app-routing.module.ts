@@ -7,12 +7,12 @@ import { MusicTermsComponent } from './music-terms/music-terms/music-terms.compo
 
 
 const routes = [
-  {path: '', redirectTo: '/music-index', pathMatch: 'full'},
-  {path: 'music-index', component: MusicTermsComponent},
+  {path: '', redirectTo: '/music-terms', pathMatch: 'full'},
+  {path: 'music-terms', component: MusicTermsComponent},
   {path: 'metronome', loadChildren: './metronome/metronome.module#MetronomeModule'},
   {path: 'scales', loadChildren: './scale-generator/scale-generator.module#ScaleGeneratorModule'},
   {path: '' , loadChildren: './user/user.module#UserModule'},
-  {path: '**', redirectTo: '/music-index'}
+  {path: '**', redirectTo: '/music-terms'}
 ]
 
 @NgModule({

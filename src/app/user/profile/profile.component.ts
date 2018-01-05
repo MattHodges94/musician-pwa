@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
     authService.user.subscribe(user => {
       this.user = user;
       if(!user){
+
         this.router.navigateByUrl('/login')
       }
     })

@@ -7,6 +7,7 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 
 import { NotificationsService } from '../services/notifications.service';
+import { promise } from 'selenium-webdriver';
 
 @Injectable()
 export class AuthService {
@@ -40,14 +41,16 @@ export class AuthService {
         });    
     }
   
-    login(email: string, password: string) {
-      this.auth
+    login(email: string, password: string): any {
+      return this.auth
         .auth
         .signInWithEmailAndPassword(email, password)
         .then(value => {
+          this.notifications.openToast('Login successful', 'success')
         })
         .catch(err => {
-          console.log('Something went wrong:',err.message);
+          console.log(err)
+          return Promise.reject(err.code)
         });
     }
   
@@ -58,9 +61,6 @@ export class AuthService {
         .then( value => {
           console.log('logout')
           this.router.navigateByUrl('/login')
-        })
-        .catch( err => {
-          console.log(err.message)
         })
     }
 

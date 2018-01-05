@@ -12,16 +12,13 @@ import { ScalesSharedModule } from '../scale-generator/scales-shared.module';
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { ConfirmCredentialsDialogComponent } from './profile/edit-profile/confirm-credentials-dialog/confirm-credentials-dialog.component';
 
-import { HeaderModule } from '../header/header.module'
-
 @NgModule({
   imports: [
     CommonModule,
     UserRoutingModule,
     MusicTermsSharedModule,
     ScalesSharedModule,
-    FormsModule,
-    HeaderModule
+    FormsModule
   ],
   declarations: [LoginComponent, RegisterComponent, ResetPasswordComponent, ProfileComponent, EditProfileComponent, ConfirmCredentialsDialogComponent],
   entryComponents: [ConfirmCredentialsDialogComponent]

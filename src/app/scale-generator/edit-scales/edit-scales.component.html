@@ -1,3 +1,5 @@
+<h3>Your Scale Lists</h3>
+<p *ngIf="!userScaleLists || userScaleLists.length == 0">It looks like you don't have any custom lists yet, try addiing some!</p>
 <div *ngFor="let scale of userScaleLists">
-    {{scale.name}} <button (click)="deleteScaleList(scale.key)">delete</button>
+    <p>{{scale.name}}</p> <button (click)="deleteScaleList(scale.key)">delete</button>
 </div> 

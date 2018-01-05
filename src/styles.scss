@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "./sass/links";
+@import "./sass/form";
+@import "./sass/card";
 
 body{
     margin: 0;
@@ -19,4 +22,24 @@ html{
 
 .error{
     background-color: red;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+
+.component-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 1rem;
+        align-items: flex-start;
+        align-content: flex-start;
+        justify-content: space-around;
+
 }

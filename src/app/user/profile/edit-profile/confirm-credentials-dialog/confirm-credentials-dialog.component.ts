@@ -4,6 +4,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { AuthService } from '../../../../services/auth.service';
 
 import * as firebase from 'firebase/app';
+import { NotificationsService } from '../../../../services/notifications.service';
 
 @Component({
   selector: 'app-confirm-credentials-dialog',
@@ -12,14 +13,15 @@ import * as firebase from 'firebase/app';
 })
 export class ConfirmCredentialsDialogComponent  {
 
-  public password: string;
+  public password: string = '';
   private user: firebase.User;
   private credentials: firebase.auth.EmailAuthProvider;
 
   constructor(
     public dialogRef: MatDialogRef<ConfirmCredentialsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private authService: AuthService) {
+    private authService: AuthService,
+    private notificationsService: NotificationsService) {
       authService.user.subscribe(user => {
         this.user = user;
       })
@@ -28,7 +30,7 @@ export class ConfirmCredentialsDialogComponent  {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
+ 
   reAuthenticate(): void {
     this.credentials = firebase.auth.EmailAuthProvider.credential(
       this.user.email,
@@ -37,11 +39,11 @@ export class ConfirmCredentialsDialogComponent  {
     this.user.reauthenticateWithCredential(this.credentials)
       .then(_ => {
         this.user.updateEmail(this.data.email)
-        this.dialogRef.close()
+        this.dialogRef.close('success')
       })
       .catch(error => {
-        console.log('failed')
+        this.notificationsService.openToast('Password incorrect', 'error')
       })
-  }1
+  }
 
 }

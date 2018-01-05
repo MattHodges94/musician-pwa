@@ -1,0 +1,18 @@
+.sideNav{
+    max-width: 80%;
+    &__logged{
+        font-family: 'Rubik', sans-serif;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    &__item{
+        list-style: none;
+    }
+    &__link{
+        display: block;
+        padding: 0.5rem;
+        &:hover{
+            background-color: rgba(0,0,0,.04);
+        }
+    }
+}

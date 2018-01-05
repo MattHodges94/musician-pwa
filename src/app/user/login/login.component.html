@@ -1,34 +1,34 @@
-<app-header headerTitle="Login"></app-header>
-<form *ngIf="!user" (ngSubmit)="login(loginForm)" #loginForm="ngForm">
-  <div>
-    <label for="email">Email
-      <span [hidden]="(loginForm.submitted && email.valid) || 
-                      !loginForm.submitted && (email.valid || email.pristine)"
-      class="alert alert-danger">is required</span>
-    </label>
-    <input type="email" id="email"
-           required
-           [(ngModel)]="userEmail" name="email"
-           #email="ngModel">
+<div class="component-wrapper">
+  <div class="card">
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div>
+        <label class="form__label" for="email">Email
+          <span [hidden]="(loginForm.submitted && email.valid) || 
+                          !loginForm.submitted && (email.valid || email.pristine)"
+          class="alert alert-danger">is required</span>
+        </label>
+        <input class="form__text" type="email" id="email"
+              required
+              [(ngModel)]="userEmail" name="email"
+              #email="ngModel">
+      </div>
+
+      <div>
+        <label class="form__label" for="email">Password
+          <span [hidden]="(loginForm.submitted && password.valid) || 
+                          !loginForm.submitted && (password.valid || password.pristine)"
+          class="alert alert-danger">is required</span>
+        </label>
+        <input class="form__text" type="password" id="password"
+              required
+              [(ngModel)]="userPassword" name="password"
+              #password="ngModel">
+      </div>
+
+      <button type="submit" class="btn btn-success">Login</button>
+    </form>
   </div>
-
-  <div>
-    <label for="email">Password
-      <span [hidden]="(loginForm.submitted && password.valid) || 
-                      !loginForm.submitted && (password.valid || password.pristine)"
-      class="alert alert-danger">is required</span>
-    </label>
-    <input type="password" id="password"
-           required
-           [(ngModel)]="userPassword" name="password"
-           #password="ngModel">
+  <div class="card">
+    <app-register></app-register>
   </div>
-
-  <button type="submit" class="btn btn-success">Submit</button>
-</form>
-<a routerLink="/register">Register</a>
-
-<button (click)="logout()" *ngIf="user">
-  Logout
-</button>
-
+</div>

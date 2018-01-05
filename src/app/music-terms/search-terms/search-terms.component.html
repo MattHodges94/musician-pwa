@@ -1,8 +1,9 @@
-<input type="search" 
+<label for="termSearch" class="form__label">Search</label>
+<input class="form__text" type="search" 
        name="termSearch" 
-       #termSearch 
+       #termSearch  
        id="search-box"
        (input)="search(termSearch.value)">
-<div *ngFor="let term of termList">
-  <p *ngIf="termListMap.get(term)"><strong>{{term.name}}: </strong><span>{{term.description}}</span></p>
+<div class="results" *ngFor="let term of termList">
+  <p *ngIf="termListMap.get(term)"><strong class="result__name">{{term.name}}: </strong><span class="result__description">{{term.description}}</span></p>
 </div>

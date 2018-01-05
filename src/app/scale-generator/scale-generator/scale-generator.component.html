@@ -1,24 +1,39 @@
-<app-header headerTitle="Scales"></app-header>
-<mat-tab-group>
-  <mat-tab label="Major">
-    <ng-container *ngFor="let scale of scales['majorScales']">
-      <p>{{scale.name}}</p>
-    </ng-container>
-    <button (click)="shuffle(scaleSets.majorScales)">Shuffle</button>
-  </mat-tab>
-  <mat-tab label="Minor">
-    <ng-container *ngFor="let scale of scales['minorScales']">
-      <p>{{scale.name}}</p>
-    </ng-container>
-    <button (click)="shuffle(scaleSets.minorScales)">Shuffle</button>
-  </mat-tab>
-  <mat-tab label="Both">
-    <ng-container *ngFor="let scale of scales['allScales']">
-      <p>{{scale.name}}</p>
-    </ng-container>
-    <button (click)="shuffle(scaleSets.allScales)">Shuffle</button>
-  </mat-tab>
-</mat-tab-group>
-
-
-
+<div class="component-wrapper">
+  <div class="card">
+    <mat-tab-group (selectedTabChange)="selectedTab=$event.tab">
+      <mat-tab label="Major">
+        <ng-container *ngFor="let scale of scales['majorScales']">
+          <p>{{scale.name}}</p>
+        </ng-container>
+        <button (click)="shuffle(scaleSets.majorScales, null, false)">Shuffle</button>
+      </mat-tab>
+      <mat-tab label="Minor">
+        <ng-container *ngFor="let scale of scales['minorScales']">
+          <p>{{scale.name}}</p>
+        </ng-container>
+        <button (click)="shuffle(scaleSets.minorScales, null, false)">Shuffle</button>
+      </mat-tab>
+      <mat-tab label="All">
+        <ng-container *ngFor="let scale of scales['allScales']">
+          <p>{{scale.name}}</p>
+        </ng-container>
+        <button (click)="shuffle(scaleSets.allScales, null, false)">Shuffle</button>
+      </mat-tab>
+      <mat-tab #customTab label="Custom" *ngIf="userScaleLists" >
+          <mat-accordion *ngIf="customTab==selectedTab">
+            <mat-expansion-panel *ngFor="let userScaleList of userScaleLists; let index" [expanded]="false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{userScaleList.name}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <ng-container *ngFor="let scale of userScaleList.scales">
+                <p>{{scale.scalename}}</p>
+              </ng-container>
+              <button (click)="shuffle(null, index, true)">Shuffle</button>
+            </mat-expansion-panel>
+          </mat-accordion>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

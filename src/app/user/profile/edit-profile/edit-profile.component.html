@@ -1,11 +1,11 @@
 <form (ngSubmit)="openDialog(userForm)" #userForm="ngForm">
     <div>
-      <label for="email">Email
+      <label class="form__label" for="email">Email
         <span [hidden]="(userForm.submitted && email.valid) || 
                         !userForm.submitted && (email.valid || email.pristine)"
         class="alert alert-danger">is required</span>
       </label>
-      <input type="email" id="email"
+      <input class="form__text" type="email" id="email"
              required
              [(ngModel)]="userEmail" name="email"
              #email="ngModel">

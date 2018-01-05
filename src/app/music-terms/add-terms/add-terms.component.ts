@@ -38,7 +38,6 @@ export class AddTermsComponent implements OnInit {
   }
 
   onSubmit(termForm: NgForm) { 
-    console.log(termForm) 
     if(termForm.valid){
       this.newTermRef.push( this.newTerm )
         .then(value => {

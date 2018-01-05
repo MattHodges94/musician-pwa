@@ -1,16 +1,14 @@
 .header{
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     margin: 0;
-
-    background: rgb(23,132,170); /* Old browsers */
-    background: -moz-linear-gradient(45deg, rgba(23,132,170,1) 0%, rgba(94,184,234,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(45deg, rgba(23,132,170,1) 0%,rgba(94,184,234,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(45deg, rgba(23,132,170,1) 0%,rgba(94,184,234,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1784aa', endColorstr='#5eb8ea',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    max-width: 1600px;
+    margin: 0 auto;
     
     display: flex;
     height: 6rem;
     &__title{
+        font-family: 'Rubik', sans-serif;
+        font-size: 2.5rem;
         color: white;
         margin: 0;
         align-self: center;

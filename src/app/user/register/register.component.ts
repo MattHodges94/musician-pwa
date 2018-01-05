@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 import * as firebase from 'firebase/app';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,15 +14,17 @@ export class RegisterComponent implements OnInit {
 
   userEmail: string;
   userPassword: string;
-  user: firebase.User;
 
-  constructor(public authService: AuthService) {
+
+  constructor(public authService: AuthService, private router: Router) {
     
   }
 
   ngOnInit(){
     this.authService.user.subscribe(user => {
-      this.user = user;
+      if(user){
+        this.router.navigateByUrl('/profile')
+      }
     })
   }
 

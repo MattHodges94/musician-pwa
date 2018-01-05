@@ -42,7 +42,9 @@ export class EditProfileComponent implements OnInit {
         });
     
         dialogRef.afterClosed().subscribe(result => {
-          this.notifications.openToast('Email successfully updated!', 'success')
+          if(result == 'success'){
+            this.notifications.openToast('Email successfully updated!', 'success')
+          }
         });
       }
     }

@@ -1,5 +1,9 @@
-
-<app-header headerTitle="Music Terms"></app-header>
-<app-add-terms *ngIf="user"></app-add-terms>
-
-<app-search-terms></app-search-terms>
+<div class="component-wrapper">
+    <div *ngIf="user" class="card left">
+        <app-add-terms></app-add-terms>
+    </div>
+    <div class="card right">
+        <p>To add your own terms please <a routerLink="/login">login</a>.</p>
+        <app-search-terms></app-search-terms>
+    </div>
+</div>

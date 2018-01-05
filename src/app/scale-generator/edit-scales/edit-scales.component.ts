@@ -39,7 +39,6 @@ export class EditScalesComponent implements OnInit {
   }
 
   public deleteScaleList(termId: string){
-      console.log('deleting...')
       this.scalesService.deleteScaleList(this.user.uid, termId)
   }
 }

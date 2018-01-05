@@ -35,6 +35,16 @@ export class MetronomeComponent implements OnInit, OnDestroy {
     }
   }
 
+  public incrementTempo(tempoField){
+    tempoField.value++
+    this.changeTempo(tempoField.value)
+  }
+
+  public decrementTempo(tempoField){
+    tempoField.value--
+    this.changeTempo(tempoField.value)
+  }
+
   public startMetronome(){
     this.hasStarted = true;
     this.metronomeTick.play();

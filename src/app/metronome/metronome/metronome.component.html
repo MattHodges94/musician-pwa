@@ -1,10 +1,16 @@
-<app-header headerTitle="Metronome"></app-header>
-<input type="number" 
-       #tempo 
-       name="tempo" 
-       (input)="changeTempo(tempo.value)"
-       value="30"
-       min="1"
-       max="150">
-<button *ngIf="!hasStarted" (click)="startMetronome()">Start</button>
-<button *ngIf="hasStarted" (click)="stopMetronome()">Stop</button>
+<div class="component-wrapper">
+    <div class="card">
+        <p>Choose a number from 1-150 to set the tempo for the metronome.</p>
+        <input type="number" 
+            #tempo 
+            name="tempo" 
+            (input)="changeTempo(tempo.value)"
+            value="30"
+            min="1"
+            max="150">
+        <button (click)="incrementTempo(tempo)">+</button>
+        <button (click)="decrementTempo(tempo)">-</button>
+        <button *ngIf="!hasStarted" (click)="startMetronome()">Start</button>
+        <button *ngIf="hasStarted" (click)="stopMetronome()">Stop</button>
+    </div>
+</div>

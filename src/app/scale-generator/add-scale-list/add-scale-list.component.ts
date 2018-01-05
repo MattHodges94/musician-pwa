@@ -76,7 +76,6 @@ export class AddScaleListComponent implements OnInit {
 
   onSubmit(){
     this.submitted = true;
-    console.log(this.scaleListForm)
     if(this.scaleListForm.valid){
       this.newScaleList['name'] = this.scaleListForm.value.name;
       this.newScaleList['scales'] = this.scaleListForm.value.scales;

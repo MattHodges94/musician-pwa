@@ -1,23 +1,24 @@
 
 
-<mat-sidenav-container class="example-container" fullscreen>
-        <mat-sidenav #sidenav mode="over"> 
-            <p *ngIf="user">Signed in as {{user.email}}</p>
-            <p *ngIf="!user">Not signed in.</p>
-            <li class="nav__item">
-                <a class="nav__link" (click)="toggleSidenav()" [routerLink]="['/music-terms']">music terms</a>
+<mat-sidenav-container fullscreen>
+        <mat-sidenav class="sideNav" #sidenav mode="over"> 
+            <p class="sideNav__logged" *ngIf="user">Signed in as {{user.email}}</p>
+            <p class="sideNav__logged" *ngIf="!user">Not signed in.</p>
+            <li class="sideNav__item">
+                <a class="sideNav__link link blue" (click)="toggleSidenav()" [routerLink]="['/music-terms']">Music Terms</a>
             </li>
-            <li class="nav__item">
-                <a class="nav__link" (click)="toggleSidenav()" [routerLink]="['/metronome']">metronome</a>
+            <li class="sideNav__item">
+                <a class="sideNav__link link blue" (click)="toggleSidenav()" [routerLink]="['/metronome']">Metronome</a>
             </li> 
-            <li class="nav__item">
-                <a class="nav__link" (click)="toggleSidenav()" [routerLink]="['/scales']">scales</a>
+            <li class="sideNav__item">
+                <a class="sideNav__link link blue" (click)="toggleSidenav()" [routerLink]="['/scales']">Scales</a>
             </li>
         </mat-sidenav>
       
     <mat-sidenav-content>
             <app-shell></app-shell>
             <router-outlet></router-outlet>
+
     </mat-sidenav-content>
 </mat-sidenav-container>
 

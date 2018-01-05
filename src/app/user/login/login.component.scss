@@ -1,0 +1,10 @@
+.card{
+    flex-basis: 40%;
+    @media (max-width: 850px){
+        flex-basis: 100%;
+    }
+}
+
+.form__text{
+    width: 100%;
+}

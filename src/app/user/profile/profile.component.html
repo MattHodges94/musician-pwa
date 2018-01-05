@@ -1,6 +1,18 @@
-<app-header headerTitle="Profile"></app-header>
-<app-add-terms></app-add-terms>
-<app-edit-terms></app-edit-terms>
-<app-add-scale-list></app-add-scale-list>
-<app-edit-scales></app-edit-scales>
-<app-edit-profile></app-edit-profile>
+<div class="component-wrapper" *ngIf="user">
+    <div class="card left">
+        <app-edit-profile></app-edit-profile>
+    </div> 
+    <div class="right"></div>
+    <div class="card left">
+        <app-add-terms></app-add-terms>
+    </div>
+    <div class="card right">
+        <app-edit-terms></app-edit-terms>
+    </div>
+    <div class="card left">
+        <app-add-scale-list></app-add-scale-list>
+    </div>
+    <div class="card right">
+        <app-edit-scales></app-edit-scales>
+    </div>
+</div>

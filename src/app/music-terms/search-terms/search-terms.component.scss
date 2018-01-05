@@ -1,0 +1,18 @@
+.result{
+    &__name{
+        color: #1c1c1c;
+        font-family: 'Roboto';
+    }
+    &__description{
+        color: #4f4f4f;   
+        font-family: 'Roboto';
+    }
+}
+
+.form__text{
+    width: 60%;
+    @media (max-width: 900px){
+        width: 100%;
+    }
+
+}

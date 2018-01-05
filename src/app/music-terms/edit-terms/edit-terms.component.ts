@@ -13,7 +13,8 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-edit-terms',
-  templateUrl: './edit-terms.component.html'
+  templateUrl: './edit-terms.component.html',
+  styleUrls: ['./edit-terms.scss']
 })
 export class EditTermsComponent implements OnInit {
 
@@ -41,10 +42,9 @@ export class EditTermsComponent implements OnInit {
   }
 
   public deleteTerm(termId: string){
-      console.log('deleting...')
       this.musicTermsService.deleteTerm(this.user.uid, termId)
       .then(_ => {
-          console.log('deleted')
+          this.notifications.openToast('Term deleted', 'success')
       })
   }
 }

@@ -1,12 +1,12 @@
 
 <form [formGroup]="scaleListForm">
     <div>
-        <label for="name">List Name
+        <label class="form__label" for="name">List Name
           <span [hidden]="(submitted && scaleListForm.controls.name.valid) || 
                         !submitted && (scaleListForm.controls.name.valid || scaleListForm.controls.name.pristine)"
                 class="alert alert-danger">is required</span>
         </label>
-        <input type="text" id="name"
+        <input class="form__text" type="text" id="name"
                required
                formControlName="name" name="name">
     </div>
@@ -14,12 +14,12 @@
       <!-- Check the correct way to iterate your form array -->
       <div *ngFor="let scale of scaleListForm.controls.scales['controls']; let i=index"  [formGroupName]="i">
         <div class="form-group">
-          <label>Scale
+          <label class="form__label">Scale
             <span [hidden]="(submitted && scaleListForm.controls.scales.controls[i].valid) || 
                         !submitted && (scaleListForm.controls.scales.controls[i].valid || scaleListForm.controls.scales.controls[i].pristine)"
                   class="alert alert-danger">is required</span>
           </label>
-          <input formControlName="scalename" class="form-control">
+          <input formControlName="scalename" class="form__text">
         </div>
         <button *ngIf="scaleListForm.controls.scales.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger">Delete Button</button>
       </div>

@@ -1,42 +1,45 @@
-<nav class="nav">
-    <a class="icon__hamburger mobile" (click)="toggleSidenav()"></a>
-    <a routerLink="/" class="nav__logo"></a>
-    <ul class="nav__items desktop">
-        <li class="nav__item">
-            <a class="nav__link" [routerLink]="['/music-terms']">music terms</a>
-        </li>
-        <li class="nav__item">
-            <a class="nav__link" [routerLink]="['/metronome']">metronome</a>
-        </li> 
-        <li class="nav__item">
-            <a class="nav__link" [routerLink]="['/scales']">scales</a>
-        </li>
-        <li class="nav__item" id="user">
-            <a class="nav__link icon__user"></a>
-            <ul class="nav__userItems">
-                <li class="nav__userItem">
-                    <a class="nav__link" [routerLink]="['/profile']">profile</a>
-                </li>
-                <li class="nav__userItem">
-                    <a class="nav__link" [routerLink]="['/login']">login</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <ul class="nav__items mobile">
-        <li class="nav__item" id="user">
-            <a class="nav__link icon__user" ></a>
-            <ul class="nav__userItems">
-                <li class="nav__userItem">
-                    <a class="nav__link" [routerLink]="['/profile']">profile</a>
-                </li>
-                <li class="nav__userItem">
-                    <a class="nav__link" [routerLink]="['/login']">login</a>
-                </li>
-            </ul>
-        </li> 
-    </ul>
-</nav>
+<div class="header-container">
+    <nav class="nav">
+        <a class="icon__hamburger mobile" (click)="toggleSidenav()"></a>
+        <a routerLink="/" class="nav__logo"></a>
+        <ul class="nav__items desktop">
+            <li class="nav__item">
+                <a class="nav__link link white" [routerLink]="['/music-terms']">Music Terms</a>
+            </li>
+            <li class="nav__item">
+                <a class="nav__link link white" [routerLink]="['/metronome']">Metronome</a>
+            </li> 
+            <li class="nav__item">
+                <a class="nav__link link white" [routerLink]="['/scales']">Scales</a>
+            </li>
+            <li class="nav__item" id="user">
+                <a class="nav__link icon__user" [matMenuTriggerFor]="userMenu"></a>
+                
+                <mat-menu #userMenu="matMenu" overlapTrigger="false">
 
+                    <a class="nav__link link blue" mat-menu-item [routerLink]="['/profile']">Profile</a>
+            
+                    <a class="nav__link link blue" *ngIf="!user" mat-menu-item [routerLink]="['/login']">Login</a>
+                    <a class="nav__link link blue" *ngIf="user" mat-menu-item (click)="logout()">Logout</a>
+                </mat-menu>
+            </li>
+        </ul>
+        <ul class="nav__items mobile">
+            <li class="nav__item" id="user">
+                <a class="nav__link icon__user" [matMenuTriggerFor]="userMenu"></a>
+                
+                <mat-menu #userMenu="matMenu" overlapTrigger="false">
+
+                    <a class="nav__link link blue" mat-menu-item [routerLink]="['/profile']">Profile</a>
+            
+                    <a class="nav__link link blue" *ngIf="!user" mat-menu-item [routerLink]="['/login']">Login</a>
+                    <a class="nav__link link blue" *ngIf="user" mat-menu-item (click)="logout()">Logout</a>
+                </mat-menu>
+            </li> 
+        </ul>
+    </nav>
+    <app-header></app-header>
+
+</div>
 
 
