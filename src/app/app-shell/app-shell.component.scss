@@ -1,3 +1,5 @@
+@import '../../sass/colours';
+
 .nav{
     width: 100%;
     max-width: 1600px;
@@ -27,9 +29,15 @@
         vertical-align: middle;
         padding: 0.5rem;
         border-radius: 5px;
+        -webkit-transition: background-color 200ms linear;
+        -ms-transition: background-color 200ms linear;
+        transition: background-color 200ms linear;
         
         &:hover{
             background-color: rgba(17, 128, 168, 0.45);
+            -webkit-transition: background-color 200ms linear;
+            -ms-transition: background-color 200ms linear;
+            transition: background-color 200ms linear;
         }
     }
 }
@@ -75,11 +83,11 @@
         }
         width: 100%;
         position: relative;
-        background: rgb(23,132,170); /* Old browsers */
-        background: -moz-linear-gradient(to right, rgb(17, 128, 168) 0%, rgb(73, 163, 212) 100%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(to right, rgb(17, 128, 168) 0%, rgb(73, 163, 212) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to right, rgb(17, 128, 168) 0%, rgb(73, 163, 212) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1180a8', endColorstr='#49a3d4 ',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        background: $colour-mid-blue; /* Old browsers */
+        background: -moz-linear-gradient(to right, $colour-dark-blue 0%, $colour-light-blue 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(to right, $colour-dark-blue 0%, $colour-light-blue 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, $colour-dark-blue 0%, $colour-light-blue 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colour-mid-blue', endColorstr='$colour-mid-blue',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
       }
 
       .header-container::after{

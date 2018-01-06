@@ -1,16 +1,27 @@
 <div class="component-wrapper">
-    <div class="card">
+    <div class="card left">
         <p>Choose a number from 1-150 to set the tempo for the metronome.</p>
-        <input type="number" 
-            #tempo 
-            name="tempo" 
-            (input)="changeTempo(tempo.value)"
-            value="30"
-            min="1"
-            max="150">
-        <button (click)="incrementTempo(tempo)">+</button>
-        <button (click)="decrementTempo(tempo)">-</button>
-        <button *ngIf="!hasStarted" (click)="startMetronome()">Start</button>
-        <button *ngIf="hasStarted" (click)="stopMetronome()">Stop</button>
+        <div class="tempo-container">
+            <input type="number" 
+                #tempo 
+                name="tempo" 
+                (input)="changeTempo(tempo.value)"
+                value="30"
+                min="1"
+                max="150"
+                class="form__text">
+            <span class="button-container">
+                <button (click)="incrementTempo(tempo)" class="btn">+</button>
+                <button (click)="decrementTempo(tempo)" class="btn">-</button>
+            </span>
+        </div>
+        <button *ngIf="!hasStarted" (click)="startMetronome()" class="btn">Start</button>
+        <button *ngIf="hasStarted" (click)="stopMetronome()" class="btn">Stop</button>
+    </div>
+    <div class="card right">
+        <h3>Metronome Markings</h3>
+        <ng-container *ngFor="let marking of metronomeMarkings">
+            <p class="marking"><strong class="marking__name">{{marking.name}} </strong><span class="marking__description">{{marking.description}}</span></p>
+        </ng-container>
     </div>
 </div>

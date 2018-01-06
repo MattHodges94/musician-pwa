@@ -1,3 +1,5 @@
-.user{
-    flex-basis: 100%;
-}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .right {
+         flex-basis: 65%;
+    }
+ }

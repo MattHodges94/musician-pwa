@@ -5,5 +5,5 @@
        id="search-box"
        (input)="search(termSearch.value)">
 <div class="results" *ngFor="let term of termList">
-  <p *ngIf="termListMap.get(term)"><strong class="result__name">{{term.name}}: </strong><span class="result__description">{{term.description}}</span></p>
+  <p *ngIf="termListMap.get(term)"><strong class="result__name">{{term.name}} </strong><span class="result__description">{{term.description}}</span></p>
 </div>

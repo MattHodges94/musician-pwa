@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Constants } from '../../constants'
 
 
  
@@ -14,6 +15,7 @@ export class MetronomeComponent implements OnInit, OnDestroy {
   public hasStarted: boolean = false;
   private metronomeTick = new Audio('./assets/audio/tick.mp3');
   private intervalTimeout;
+  public metronomeMarkings = Constants.metronomeMarkings;
 
   constructor() { }
 

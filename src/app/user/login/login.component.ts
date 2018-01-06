@@ -13,8 +13,8 @@ import { NotificationsService } from '../../services/notifications.service';
 })
 export class LoginComponent implements OnInit {
 
-  userEmail: string;
-  userPassword: string;
+  userEmailLogin: string;
+  userPasswordLogin: string;
 
 
   constructor(public authService: AuthService, private router: Router, private notificationsService: NotificationsService) {
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
 
   login() {
-    this.authService.login(this.userEmail, this.userPassword)
+    this.authService.login(this.userEmailLogin, this.userPasswordLogin)
     .then((res) => {
     })
     .catch(err => {

@@ -7,21 +7,23 @@
         outline: none;
         display: block;
         font-family: 'Roboto', monospace;
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.8rem;
     }
     &__label{
         // color: #649cb1;
         font-size: 0.8rem;
-        color: #095f7f;
+        // color: #095f7f;
+        color: $colour-dark-blue;
         font-family: 'Roboto', monospace;
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.4rem;
 
     }
 }
 
 .btn{
     color: white;
-    background-color: #0e779e;
+    background-color: $colour-dark-blue;
+    margin-bottom: 0.6rem;
     border: none;
     padding: 0.4rem;
     border-radius: 4px;
@@ -29,4 +31,26 @@
     font-size: 0.9rem;
     -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+    cursor: pointer;
+    &:hover {
+        background-color: $colour-light-blue;
+        -webkit-transition: background-color 200ms linear;
+        -ms-transition: background-color 200ms linear;
+        transition: background-color 200ms linear;
+    }
+}
+
+.btn-delete{
+    background-image: url('./assets/icons/delete.svg');
+    background-repeat: no-repeat;
+    background-size: 0.8rem 0.8rem;
+    height: 0.8rem;
+    width: 0.8rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-left: 1rem;
 }

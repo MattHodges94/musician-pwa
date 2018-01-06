@@ -12,7 +12,8 @@ import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-edit-scales',
-  templateUrl: './edit-scales.component.html'
+  templateUrl: './edit-scales.component.html',
+  styleUrls: ['./edit-scales.component.scss']
 })
 export class EditScalesComponent implements OnInit {
 
@@ -40,5 +41,8 @@ export class EditScalesComponent implements OnInit {
 
   public deleteScaleList(termId: string){
       this.scalesService.deleteScaleList(this.user.uid, termId)
+      .then(_ => {
+        this.notifications.openToast('Scale list deleted', 'success')
+    })
   }
 }

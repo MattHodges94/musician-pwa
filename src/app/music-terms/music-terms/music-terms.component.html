@@ -3,7 +3,7 @@
         <app-add-terms></app-add-terms>
     </div>
     <div class="card right">
-        <p>To add your own terms please <a routerLink="/login">login</a>.</p>
+        <p *ngIf="!user">To add your own terms please <a routerLink="/login" class="link light-blue">login</a>.</p>
         <app-search-terms></app-search-terms>
     </div>
 </div>

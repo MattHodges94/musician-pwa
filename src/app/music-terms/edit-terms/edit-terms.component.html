@@ -1,5 +1,5 @@
 <h3>Your Terms</h3>
 <p *ngIf="!userTerms || userTerms.length == 0">It looks like you don't have any custom terms yet, try addiing some!</p>
-<div  *ngFor="let term of userTerms">
-    <p><strong>{{term.name}}: </strong><span>{{term.description}}</span></p> <button (click)="deleteTerm(term.key)">delete</button>
+<div  class="results" *ngFor="let term of userTerms">
+    <p><strong class="result__name">{{term.name}}: </strong><span class="result__description">{{term.description}}</span> <button (click)="deleteTerm(term.key)" class="btn-delete"></button></p> 
 </div>   

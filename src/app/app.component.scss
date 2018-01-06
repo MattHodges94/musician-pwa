@@ -1,16 +1,18 @@
 .sideNav{
     max-width: 80%;
+    min-width: 50%;
     &__logged{
         font-family: 'Rubik', sans-serif;
-        padding: 0.5rem;
+        padding: 0.6rem;
         font-size: 0.8rem;
+        word-break: break-all;
     }
     &__item{
         list-style: none;
     }
     &__link{
         display: block;
-        padding: 0.5rem;
+        padding: 1rem;
         &:hover{
             background-color: rgba(0,0,0,.04);
         }

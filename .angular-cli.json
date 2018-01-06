@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "musician-web-app"
+    "name": "Practice Companion"
   },
   "apps": [
     {
@@ -12,7 +12,8 @@
         "*.ico",
         "*.png",
         "*.svg",
-        "manifest.json"
+        "manifest.json",
+        ".htaccess"
       ],
       "index": "index.html",
       "main": "main.ts",

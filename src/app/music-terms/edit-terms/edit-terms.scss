@@ -1,0 +1,14 @@
+@import '../../../sass/colours';
+
+.result{
+    &__name{
+        color: $colour-black;
+        font-family: 'Roboto';
+        word-break: break-word;
+    }
+    &__description{
+        color: $colour-grey;   
+        font-family: 'Roboto';
+        word-break: break-word;
+    }
+}

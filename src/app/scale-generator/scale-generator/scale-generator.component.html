@@ -5,21 +5,21 @@
         <ng-container *ngFor="let scale of scales['majorScales']">
           <p>{{scale.name}}</p>
         </ng-container>
-        <button (click)="shuffle(scaleSets.majorScales, null, false)">Shuffle</button>
+        <button (click)="shuffle(scaleSets.majorScales, null, false)" class="btn">Shuffle</button>
       </mat-tab>
       <mat-tab label="Minor">
         <ng-container *ngFor="let scale of scales['minorScales']">
           <p>{{scale.name}}</p>
         </ng-container>
-        <button (click)="shuffle(scaleSets.minorScales, null, false)">Shuffle</button>
+        <button (click)="shuffle(scaleSets.minorScales, null, false)" class="btn">Shuffle</button>
       </mat-tab>
       <mat-tab label="All">
         <ng-container *ngFor="let scale of scales['allScales']">
           <p>{{scale.name}}</p>
         </ng-container>
-        <button (click)="shuffle(scaleSets.allScales, null, false)">Shuffle</button>
+        <button (click)="shuffle(scaleSets.allScales, null, false)" class="btn">Shuffle</button>
       </mat-tab>
-      <mat-tab #customTab label="Custom" *ngIf="userScaleLists" >
+      <mat-tab #customTab label="Custom" *ngIf="userScaleLists && userScaleLists.length != 0" >
           <mat-accordion *ngIf="customTab==selectedTab">
             <mat-expansion-panel *ngFor="let userScaleList of userScaleLists; let index" [expanded]="false">
               <mat-expansion-panel-header>
@@ -30,7 +30,7 @@
               <ng-container *ngFor="let scale of userScaleList.scales">
                 <p>{{scale.scalename}}</p>
               </ng-container>
-              <button (click)="shuffle(null, index, true)">Shuffle</button>
+              <button (click)="shuffle(null, index, true)" class="btn">Shuffle</button>
             </mat-expansion-panel>
           </mat-accordion>
       </mat-tab>

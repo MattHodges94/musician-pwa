@@ -1,27 +1,27 @@
 <div class="component-wrapper">
   <div class="card">
     <form (ngSubmit)="login()" #loginForm="ngForm">
-      <div>
-        <label class="form__label" for="email">Email
+      <div> 
+        <label class="form__label" for="emailLogin">Email
           <span [hidden]="(loginForm.submitted && email.valid) || 
                           !loginForm.submitted && (email.valid || email.pristine)"
           class="alert alert-danger">is required</span>
         </label>
-        <input class="form__text" type="email" id="email"
+        <input class="form__text" type="email" id="emailLogin"
               required
-              [(ngModel)]="userEmail" name="email"
+              [(ngModel)]="userEmailLogin" name="emailLogin"
               #email="ngModel">
       </div>
 
       <div>
-        <label class="form__label" for="email">Password
+        <label class="form__label" for="emailLogin">Password
           <span [hidden]="(loginForm.submitted && password.valid) || 
                           !loginForm.submitted && (password.valid || password.pristine)"
           class="alert alert-danger">is required</span>
         </label>
-        <input class="form__text" type="password" id="password"
+        <input class="form__text" type="password" id="passwordLogin"
               required
-              [(ngModel)]="userPassword" name="password"
+              [(ngModel)]="userPasswordLogin" name="passwordLogin"
               #password="ngModel">
       </div>
 

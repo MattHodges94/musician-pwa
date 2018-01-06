@@ -26,8 +26,7 @@ export class ScalesService {
   }
 
   public deleteScaleList(uid: string, termId: string){
-    this.db.list('/customScales/' + uid +'/' + termId).remove()
-    
+    return this.db.list('/customScales/' + uid +'/' + termId).remove()
   }
   
 

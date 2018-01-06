@@ -1,6 +1,6 @@
 {
-    "name": "Musician App",
-    "short_name": "Musician App",
+    "name": "Practice Companion",
+    "short_name": "Practice Companion",
     "icons": [
       {
         "src": "./android-chrome-192x192.png",

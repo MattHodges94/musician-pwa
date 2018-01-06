@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  userEmail: string;
-  userPassword: string;
+  userEmailRegister: string;
+  userPasswordRegister: string;
 
 
   constructor(public authService: AuthService, private router: Router) {
@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
   }
 
   signup() {
-    this.authService.signup(this.userEmail, this.userPassword);
+    this.authService.signup(this.userEmailRegister, this.userPasswordRegister);
   }
 
 }

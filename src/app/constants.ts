@@ -56,4 +56,26 @@ export class Constants {
             {name:"d", sharpsflats:"1 flat"}
         ]
     }
+
+    public static metronomeMarkings = [
+        {name: "Larghissimo:", description: "very, very slow 24 bpm"},
+        {name: "Grave:", description: "very slow (25–45 bpm)"},
+        {name: "Largo:", description: "broadly (40–60 bpm)"},
+        {name: "Lento:", description: "slowly (45–60 bpm)"},
+        {name: "Larghetto:", description: "rather broadly (60–66 bpm)"},
+        {name: "Adagio:", description: "slow and stately (literally, 'at ease') (66–76 bpm)"},
+        {name: "Adagietto:", description: "slower than andante (72–76 bpm)"},
+        {name: "Andante:", description: "at a walking pace (76–108 bpm)"},
+        {name: "Andantino:", description:  "slightly faster than Andante (although in some cases it can be taken to mean slightly slower than andante) (80–108 bpm)"},
+        {name: "Andante moderato:", description:  "between andante and moderato (thus the name andante moderato) (92–112 bpm)"},
+        {name: "Moderato:", description:  "moderately (108–120 bpm)"},
+        {name: "Allegretto:", description:  "moderately fast (112–120 bpm)"},
+        {name: "Allegro moderato:", description:  "close to but not quite allegro (116–120 bpm)"},
+        {name: "Allegro:", description:  "fast, quickly, and bright (120–168 bpm) (molto allegro is slightly faster than allegro, but always in its range)"},
+        {name: "Vivace:", description:  "lively and fast (168–176 bpm)"},
+        {name: "Vivacissimo:", description:  "very fast and lively (172–176 bpm)"},
+        {name: "Allegrissimo or Allegro vivace:", description:  "very fast (172–176 bpm)"},
+        {name: "Presto:", description:  "very, very fast (168–200 bpm)"},
+        {name: "Prestissimo:", description:  "even faster than Presto (200 bpm and over)"},
+    ]
 }
